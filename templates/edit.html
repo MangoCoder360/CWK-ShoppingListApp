@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3 class="text-center">Editing a list item...</h3>
+<hr>
+<div class="container text-left">
+    <div class="inputbox-add-task" id="add-task">
+                <form method="POST" action="/edit/{{task[0]}}">
+                    <div class="form-group">
+                        <input class="form-control item" name="name" required value="{{task[1]}}"}> <br />
+                        <input class="form-control item" name="date" required value="{{task[2] }}"> <br />
+                        <input class="form-control item" name="status" required value="{{task[3]}}"> <br />
+                        <button class="btn btn-primary" id="todo-submit" type="submit">Update Item </button>
+                    </div>
+                </form>
+    </div>
+
+</div>
+
+{% endblock content %}

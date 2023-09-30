@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3 class="text-center">Shopping List</h3>
+<hr>
+<div class="container text-left">
+    <div class="inputbox-add-task" id="add-task">
+        <form method="POST" action="/add">
+            <div class="form-group">
+                <input class="form-control item" name="task" placeholder="Beans" required>
+                <input class="form-control item" name="date" placeholder="Today" required>
+                <button class="btn btn-primary" id="todo-submit" type="submit" >Add Item </button>
+            </div>
+        </form>
+    </div>
+    
+</div>
+<br>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if list != "" %}
+            {% for task in list %}
+            <tr>
+                <td>{{task[1]}}</td>
+                <td>{{task[2]}}</td>
+                <td>{{task[3]}}</td>
+
+                <td>
+                    <a href="/edit/{{task[0]}}" class="btn btn-info">Edit</a>
+                    <a href="/delete/{{task[0]}}" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+
+</table>
+
+
+{% endblock content %}
